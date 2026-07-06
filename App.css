@@ -1,0 +1,176 @@
+/* frontend/src/App.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #333333;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #111111;
+}
+
+.new-habit-card {
+  background: #ffffff;
+  border: 1px solid #e1e4e6;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: block;
+  width: 100%;
+}
+
+.form-row input[type="text"] {
+  width: 75%;
+  height: 42px;
+  padding: 0 14px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form-row input[type="text"]:focus {
+  border-color: #ff5a36;
+}
+
+.form-row button {
+  width: 22%;
+  margin-left: 3%;
+  height: 42px;
+  background-color: #ff5a36;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.form-row button:hover {
+  background-color: #e04422;
+}
+
+.habit-card {
+  background: #ffffff;
+  border: 1px solid #e1e4e6;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.habit-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  color: #1a202c;
+  padding-right: 100px;
+}
+
+.streak-display {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ff5a36;
+  margin: 0 0 16px 0;
+}
+
+.action-row {
+  margin-bottom: 16px;
+}
+
+.checkin-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.checkin-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.checkin-btn.checked-today {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.calendar-history {
+  display: block;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.calendar-box {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.calendar-box.done {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.calendar-box.not-done {
+  background-color: #edf2f7;
+  color: #718096;
+}
+
+.delete-btn {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #a0aec0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.delete-btn:hover {
+  color: #e53e3e;
+}
+
+.status-text {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #718096;
+  margin-top: 40px;
+}
