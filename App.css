@@ -1,176 +1,251 @@
 /* frontend/src/App.css */
 
+/* ---------- Theme tokens (light + dark) ---------- */
+:root {
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --border: #e2e4ea;
+  --accent: #0f9d8c;
+  --accent-hover: #0c8377;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+}
+
+.app.dark {
+  --bg: #12141c;
+  --surface: #1b1e29;
+  --text: #e8e9ee;
+  --muted: #9aa0ac;
+  --border: #2a2e3b;
+  --accent: #2dd4bf;
+  --accent-hover: #22b8a5;
+  --danger: #f87171;
+  --danger-hover: #ef4444;
+}
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #f7f9fa;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #333333;
-}
-
-.container {
-  max-width: 640px;
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  padding: 32px 16px 64px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 40px 20px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 h1 {
-  font-size: 2.2rem;
-  margin-top: 0;
-  margin-bottom: 24px;
-  color: #111111;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
-.new-habit-card {
-  background: #ffffff;
-  border: 1px solid #e1e4e6;
-  border-radius: 10px;
-  padding: 18px;
-  margin-bottom: 24px;
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+/* ---------- Dark mode toggle ---------- */
+.dark-toggle {
+  display: block;
+  margin: 0 0 16px auto;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ---------- Registration form ---------- */
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reg-form input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
 }
 
 .form-row {
-  display: block;
-  width: 100%;
-}
-
-.form-row input[type="text"] {
-  width: 75%;
-  height: 42px;
-  padding: 0 14px;
-  font-size: 1rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  outline: none;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.form-row input[type="text"]:focus {
-  border-color: #ff5a36;
-}
-
-.form-row button {
-  width: 22%;
-  margin-left: 3%;
-  height: 42px;
-  background-color: #ff5a36;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.form-row button:hover {
-  background-color: #e04422;
-}
-
-.habit-card {
-  background: #ffffff;
-  border: 1px solid #e1e4e6;
-  border-radius: 10px;
-  padding: 18px;
-  margin-bottom: 16px;
   position: relative;
 }
 
-.habit-card h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.3rem;
-  color: #1a202c;
-  padding-right: 100px;
+.char-counter {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
-.streak-display {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #ff5a36;
-  margin: 0 0 16px 0;
+.form-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin: 0;
 }
 
-.action-row {
-  margin-bottom: 16px;
+.form-buttons {
+  display: flex;
+  gap: 10px;
 }
 
-.checkin-btn {
-  background-color: #2563eb;
-  color: #ffffff;
+/* ---------- Buttons ---------- */
+.btn {
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 8px 16px;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
+  transition: background 0.15s ease;
 }
-
-.checkin-btn:hover {
-  background-color: #1d4ed8;
-}
-
-.checkin-btn.checked-today {
-  background-color: #10b981 !important;
-  color: #ffffff !important;
-  opacity: 0.85;
+.btn:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
-
-.calendar-history {
-  display: block;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px dashed #e2e8f0;
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+.btn-secondary {
+  background: var(--border);
+  color: var(--text);
+}
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+.btn-danger:hover {
+  background: var(--danger-hover);
 }
 
-.calendar-box {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  text-align: center;
-  border-radius: 6px;
+/* ---------- Section header + search ---------- */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.last-updated {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.search-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---------- Loading / empty states ---------- */
+.loading,
+.empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---------- Student list ---------- */
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.student-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.student-row:last-child {
+  border-bottom: none;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #b95d5d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.student-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.student-name {
   font-weight: 600;
-  margin-right: 6px;
-  vertical-align: middle;
 }
 
-.calendar-box.done {
-  background-color: #10b981;
-  color: #ffffff;
-}
-
-.calendar-box.not-done {
-  background-color: #edf2f7;
-  color: #718096;
-}
-
-.delete-btn {
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  background: none;
-  border: none;
-  color: #a0aec0;
+.student-meta {
   font-size: 0.85rem;
-  cursor: pointer;
-  padding: 4px;
+  color: var(--muted);
 }
 
-.delete-btn:hover {
-  color: #e53e3e;
+.registered-at {
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
-.status-text {
-  text-align: center;
-  font-size: 1.05rem;
-  color: #718096;
-  margin-top: 40px;
+.student-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ---------- Pagination ---------- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: 0.9rem;
 }
